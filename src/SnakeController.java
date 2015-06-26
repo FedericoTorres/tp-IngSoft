@@ -1,3 +1,9 @@
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.midi.InvalidMidiDataException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,9 +37,13 @@ public class SnakeController implements ControllerInterface{
 	view.enableStartMenuItem();
         }
         
-	public void increaseBPM(){}
+	public void increaseBPM(){
+            model.nextSong();
+        }
         
-	public void decreaseBPM(){}
+	public void decreaseBPM(){
+        model.previousSong();
+        }
         
  	public void setBPM(int bpm){}
 }
