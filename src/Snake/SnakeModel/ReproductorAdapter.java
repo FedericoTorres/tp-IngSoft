@@ -1,24 +1,28 @@
 package Snake.SnakeModel;
 
+import Libro.BeatModelInterface;
+import Libro.BeatObserver;
+import Libro.BPMObserver;
+
 public class ReproductorAdapter implements BeatModelInterface 
 {
-    ReproductorInterface snake;
+    ReproductorInterface reproductor;
     
     public ReproductorAdapter(ReproductorInterface snake)
     {
-        this.snake = snake;
+        this.reproductor = snake;
     }
     
     public void initialize() {}
     
     public void on()
     {
-        snake.on();
+        reproductor.on();
     }
     
     public void off()
     {
-        snake.stop();
+        reproductor.stop();
     }
     
     public int getBPM() 
@@ -30,23 +34,22 @@ public class ReproductorAdapter implements BeatModelInterface
     
     public void registerObserver(BeatObserver o) 
     {
-	snake.registerObserver(o);
+	reproductor.registerObserver(o);
     }
     
     public void removeObserver(BeatObserver o) 
     {
-	snake.removeObserver(o);
+	reproductor.removeObserver(o);
     }
      
     public void registerObserver(BPMObserver o) 
     {
-	snake.registerObserver(o);
+	reproductor.registerObserver(o);
     }
   
     public void removeObserver(BPMObserver o) 
     {
-	snake.removeObserver(o);
+	reproductor.removeObserver(o);
     }
-    
     
 }

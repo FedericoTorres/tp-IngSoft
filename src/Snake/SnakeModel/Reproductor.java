@@ -1,5 +1,8 @@
 package Snake.SnakeModel;
 
+import Libro.BeatObserver;
+import Libro.BPMObserver;
+
 import java.io.BufferedInputStream;
 
 import java.io.File;

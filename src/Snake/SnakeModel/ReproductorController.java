@@ -1,5 +1,8 @@
 package Snake.SnakeModel;
 
+import Libro.DJView;
+import Libro.ControllerInterface;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

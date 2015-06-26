@@ -1,5 +1,8 @@
 package Snake.SnakeModel;
 
+import Libro.BPMObserver;
+import Libro.BeatObserver;
+
 import java.io.IOException;
 import java.io.InputStream;
 import javax.sound.midi.InvalidMidiDataException;
