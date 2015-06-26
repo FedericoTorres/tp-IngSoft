@@ -25,7 +25,7 @@ public class Snake implements ObjetoConMovimientos {
 	this(0, 0);
     }
     
-   public int eat(Manzana manzana) {
+   public int comer(Manzana manzana) {
 	crecer(manzana.getCrecimiento());
 	manzana.setTiempoEnCero();
 	return manzana.getPuntaje();
