@@ -1,17 +1,18 @@
 package Snake.SnakeController;
 
 import Snake.SnakeModel.*;
+import Snake.SnakeView.IGui;
 
 public class SnakeController
 {
     protected Grilla grilla;
     protected Snake snake;
-    private final IInputcontroller input;
+    private final IInputController input;
     protected final IGui gui;
     private boolean jugando = true;
     private int puntuacion;
 
-    public SnakeController(IGui gui, IInputcontroller input) 
+    public SnakeController(IGui gui, IInputController input) 
     {
         resetear();
 
