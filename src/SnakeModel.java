@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import javax.sound.midi.InvalidMidiDataException;
 
  
 
@@ -22,12 +23,15 @@ public class SnakeModel {
     
     Sequencer sequencer;
     ArrayList   bfis;
+    int indexOfSong = 0;
     
     public SnakeModel() throws Exception
     {
         sequencer = MidiSystem.getSequencer();
+        sequencer.open();
         bfis = new ArrayList();
-        defaultList();
+        this.defaultList();
+        sequencer.setSequence((InputStream) bfis.get(0));
     }
  
     
@@ -86,6 +90,11 @@ public class SnakeModel {
         this.addSong(is);
         InputStream is2 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\shakeitoff.mid")));
         this.addSong(is2);
+        InputStream is3 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\muse.mid")));
+        this.addSong(is3);
+        InputStream is4 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\articmonkeys.mid")));
+        this.addSong(is4);
+        
             }
         catch(FileNotFoundException o)
          {
@@ -97,6 +106,24 @@ public class SnakeModel {
     {
         bfis.add(inpS);
     }
+    
+    public void nextSong() throws IOException, InvalidMidiDataException
+    {
+        int contador = bfis.indexOf(sequencer.getSequence());
+        int externa = bfis.size();
+        if (externa - 1 == contador)
+        {
+            sequencer.setSequence((InputStream)bfis.get(0));
+        }
+        else
+        {
+            sequencer.setSequence((InputStream)bfis.get(contador + 1));
+        }
+    }
+    
+    
+    
+    
     
     
     
