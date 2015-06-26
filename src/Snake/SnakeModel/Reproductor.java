@@ -1,3 +1,4 @@
+package Snake.SnakeModel;
 
 import java.io.BufferedInputStream;
 
@@ -24,7 +25,7 @@ import javax.sound.midi.Sequencer;
 
  
 
-public class SnakeModel implements SnakeModelInterface {
+public class Reproductor implements ReproductorInterface {
     
     Sequencer sequencer;
     ArrayList   bfis;
@@ -32,8 +33,9 @@ public class SnakeModel implements SnakeModelInterface {
     ArrayList beatObservers = new ArrayList();
     ArrayList bpmObservers = new ArrayList();
     private  int songsCounter = 0;
+
     
-    public SnakeModel() throws Exception
+    public Reproductor() throws Exception
     {
         sequencer = MidiSystem.getSequencer();
         sequencer.open();
@@ -96,10 +98,10 @@ public class SnakeModel implements SnakeModelInterface {
     }
 
     private void defaultList() {
-        File file1 = new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\yes-roundabout.mid");
-        File file2 = new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\shakeitoff.mid");
-        File file3 = new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\articmonkeys.mid");
-        File file4 = new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\muse.mid");
+        File file1 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\tp-IngSoft\\src\\yes-roundabout.mid");
+        File file2 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\tp-IngSoft\\src\\shakeitoff.mid");
+        File file3 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\tp-IngSoft\\src\\articmonkeys.mid");
+        File file4 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\tp-IngSoft\\src\\muse.mid");
 
 
         try {
@@ -127,9 +129,9 @@ public class SnakeModel implements SnakeModelInterface {
             songsCounter = 4;
             
         */  } catch (InvalidMidiDataException ex) {
-            Logger.getLogger(SnakeModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SnakeModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -150,7 +152,7 @@ public class SnakeModel implements SnakeModelInterface {
             try {
                 sequencer.setSequence((Sequence) bfis.get(cont+1));
             } catch (InvalidMidiDataException ex) {
-                Logger.getLogger(SnakeModel.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("No se pudo leer el Midi");
             }
             }
@@ -170,7 +172,7 @@ public class SnakeModel implements SnakeModelInterface {
             try {
                 sequencer.setSequence((Sequence)bfis.get(cont-1));
             } catch (InvalidMidiDataException ex) {
-                Logger.getLogger(SnakeModel.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("No se pudo leer el Midi");
             }
             
@@ -226,14 +228,6 @@ public class SnakeModel implements SnakeModelInterface {
 		}
     
     }
-
-
-    
-    
-    
-    
-    
-    
     
 }
 

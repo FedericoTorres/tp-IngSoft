@@ -1,9 +1,11 @@
+package Snake.SnakeModel;
+
 import java.io.IOException;
 import java.io.InputStream;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.Sequence;
 
-public interface SnakeModelInterface 
+public interface ReproductorInterface 
 {
     void on();
     void stop();

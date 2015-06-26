@@ -1,3 +1,5 @@
+package Snake.SnakeModel;
+
 public class Cuadrado {
     private int x;
     private int y;

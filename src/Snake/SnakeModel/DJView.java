@@ -1,3 +1,5 @@
+package Snake.SnakeModel;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -143,18 +145,17 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 			controller.decreaseBPM();
 		}
     }
+    
+    	public void updateBeat() {
+		if (beatBar != null) {
+			 beatBar.setValue(100);
+		}
+	}
 
 	public void updateBPM() 
         {
 		if(model != null) 
                 {
-                    if(model instanceof HeartAdapter)
-                    {
-                        if(bpmOutputLabel != null)
-                            bpmOutputLabel.setText(HeartModel.getLlamadas());
-                    }
-                    else
-                    {
 			int bpm = model.getBPM();
                         
 			if(bpm == 0) 
@@ -171,10 +172,5 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
                     }
 		}
 	}
-  
-	public void updateBeat() {
-		if (beatBar != null) {
-			 beatBar.setValue(100);
-		}
-	}
-}
+
+

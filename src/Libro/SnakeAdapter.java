@@ -1,3 +1,5 @@
+package Libro;
+
 public class SnakeAdapter implements BeatModelInterface 
 {
     SnakeModelInterface snake;

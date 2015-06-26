@@ -1,3 +1,4 @@
+package Snake.SnakeModel;
 public interface ControllerInterface {
 	void start();
 	void stop();

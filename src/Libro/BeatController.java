@@ -1,3 +1,5 @@
+package Libro;
+
 public class BeatController implements ControllerInterface {
 	BeatModelInterface model;
 	DJView view;

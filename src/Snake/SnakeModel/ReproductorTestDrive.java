@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Snake.SnakeModel;
 
 /**
  *
- * @author Leonardo
+ * @author Nacho
  */
-public class SnakeTestDrive {
+public class ReproductorTestDrive {
     
-
-
     public static void main(String[] args) throws Exception 
     {
-	SnakeModelInterface model = new SnakeModel();
-        ControllerInterface controller = new SnakeController(model);
+	ReproductorInterface model = new Reproductor();
+        ControllerInterface controller = new ReproductorController(model);
     }
 }
-
-    
