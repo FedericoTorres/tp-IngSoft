@@ -4,6 +4,8 @@ import java.io.BufferedInputStream;
 import java.io.File;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,8 +19,19 @@ import javax.sound.midi.Sequencer;
  
 
 public class SnakeModel {
-
+    
+    Sequencer sequencer;
+    ArrayList   bfis;
+    
+    public SnakeModel() throws Exception
+    {
+        sequencer = MidiSystem.getSequencer();
+        bfis = new ArrayList();
+        defaultList();
+    }
  
+    
+    /*
 
     public static void main(String[] args) throws Exception {
 
@@ -28,6 +41,7 @@ public class SnakeModel {
         Sequencer sequencer = MidiSystem.getSequencer();
         ArrayList   bfis = new ArrayList();
         File	midiFile = new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\shakeitoff.mid");
+        
 
         // Opens the device, indicating that it should now acquire any
   // system resources it requires and become operational.
@@ -47,12 +61,44 @@ public class SnakeModel {
         // Starts playback of the MIDI data in the currently loaded sequence.
         sequencer.start();
         
+     
         
-
- 
-
+        
+       
+    }
+    */
+    public void on()
+    {
+        sequencer.start();
+    }
+    
+    public void stop()
+    {
+        sequencer.stop();
     }
 
-
+    private void defaultList() {
+        
+        try
+            {
+        
+        InputStream is = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\yes-roundabout.mid")));
+        this.addSong(is);
+        InputStream is2 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\shakeitoff.mid")));
+        this.addSong(is2);
+            }
+        catch(FileNotFoundException o)
+         {
+             System.out.println("Cancion no localizada");
+         }
+    }
+    
+    private void addSong(InputStream inpS)
+    {
+        bfis.add(inpS);
+    }
+    
+    
+    
 }
 
