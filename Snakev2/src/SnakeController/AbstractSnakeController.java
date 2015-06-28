@@ -87,7 +87,7 @@ public abstract class  AbstractSnakeController {
         private void agregarManzanas()//agrega manzanas sino hay ninguna
         {
             if(matrizJuego.noHayManzanas())
-                matrizJuego.agregarManzanas(100,3,30, snake);
+                matrizJuego.agregarManzanas(100,1,30, snake);
         }
         
         private void chequearManzanas()//verifica que la vibora este en la misma coordenada que una manzana

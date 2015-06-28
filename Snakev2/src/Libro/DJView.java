@@ -39,6 +39,9 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 		model.registerObserver((BeatObserver)this);
 		model.registerObserver((BPMObserver)this);
     }
+
+    
+
     
     
     public void createView() {
@@ -102,7 +105,17 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
         this.controlFrame.dispose();
 
     }
+    
+    public void ocultarMenuModels()
+    {
+        menuModels.setEnabled(false);
+    }
   
+    
+    public void verMenuModels()
+    {
+        menuModels.setEnabled(true);
+    }
     public void createControls() {
 		// Create all Swing components here
         JFrame.setDefaultLookAndFeelDecorated(true);
@@ -231,6 +244,7 @@ public class DJView implements ActionListener,  BeatObserver, BPMObserver {
 
         controlFrame.pack();
         controlFrame.setVisible(true);
+       
     }
 
         public void removeObservers()
