@@ -10,6 +10,8 @@ package SnakeModel;
  *
  * @author Leonardo
  */
+
+//Interfaz que posee los metodos de un objeto con las propiedades de movimiento
 public interface InterfazObjetoMovible {
     
     

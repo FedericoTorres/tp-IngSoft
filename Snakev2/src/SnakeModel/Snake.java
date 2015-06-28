@@ -20,15 +20,18 @@ public class Snake implements InterfazObjetoMovible {
     }
     
     private direccion direccionActual;
-    private int crece;
+    private int crece; //Esta variable aumenta al comer una manzana y decreceria con cada ciclo ver funcionamiento
+                          //en metodo RemoverCuadradoDeLaCola
     
-    private final ArrayList<CuadradoGeneral> largo;
+    private final ArrayList<CuadradoGeneral> largo; //Este array representa la serpiente
+                                                    //la serpiente es un conjunto de cuadrados
     
     
     //el constructor crea una snake de un cuadrado
     
     
-    public Snake(int xInicio,int yInicio)
+    public Snake(int xInicio,int yInicio) //crea una nueva snake DE UN CUADRADO DE LARGO
+                                            //en la posicion x,y que se definan
     {
         largo = new ArrayList<>();
         largo.add(new CuadradoGeneral(xInicio,yInicio));
@@ -41,7 +44,9 @@ public class Snake implements InterfazObjetoMovible {
     }
     
     public int comerManzana(Manzanas manzana)// Come la manzana, pone el tiempo a 0 asi se borra y 
-            //luego devuelve el score
+                                                    //luego devuelve el score
+                                                   //Aumenta la variable integer CRECER que establece cuantos
+                                                   //cuadrados va a crecer
     {
         setCrecer(manzana.getValorDeCrecimiento());
         manzana.setTiempoMuerACero();
@@ -49,7 +54,8 @@ public class Snake implements InterfazObjetoMovible {
     }
     
     
-    public CuadradoGeneral getCabezaSnake()
+    public CuadradoGeneral getCabezaSnake() //obtiene el cuadrado que se encentra primero en el array
+                                                //representa la cabeza
     {
         return largo.get(0);
     }
@@ -57,12 +63,12 @@ public class Snake implements InterfazObjetoMovible {
     
     public void setCrecer()
     {
-        this.crece++;
+        this.crece++; 
     }
     
     public void setCrecer(int crece)
     {
-        this.crece += crece;
+        this.crece += crece; //aumenta el tamano de la vibora lo que valgan los puntos de crecimientos de la manzana
     }
     
     public void moverseEnDireccionActual() //Se mueve y se le agrega un cuadrado en la cabeza
@@ -75,6 +81,7 @@ public class Snake implements InterfazObjetoMovible {
          }
     }
     //Agrega un cuadrado en el frente de la cabeza 
+    //depende de la direccion d ela vibora agrega un cuadrado en la coordenada que corresponda
     private void agregarCuadradoEnLaCabeza() {
 		CuadradoGeneral cabeza = largo.get(0);
 		int newX = cabeza.getX();
@@ -82,12 +89,13 @@ public class Snake implements InterfazObjetoMovible {
 		switch (direccionActual) {
 		case ARRIBA:
 			newY--;
-			break;
+			break; //la cabeza ahora se moveria para arriba ya que las Y menos estan arriba
 		case ABAJO:
 			newY++;
-			break;
+			break; //aumenta solo y ya que en X no se movio y aumenta ya que se dirije a coordenadas mas 
+                                //abajo v
 		case IZQUIERDA:
-			newX--;
+			newX--; //las coordenada de x Disminuyen ya que se mueve hacia la izq
 			break;
 		case DERECHA:
 			newX++;
@@ -97,10 +105,16 @@ public class Snake implements InterfazObjetoMovible {
 		default:
 			return;
 		}
-		largo.add(0, new CuadradoGeneral(newX, newY));
+		largo.add(0, new CuadradoGeneral(newX, newY)); //se agrega un nuevo cuadrado en esa coordenada y el
+                                                                //anterior se empuja a la posicion siguiente
+                                                                //quedando asi 2 cuadrados 
 	}
     
-    private void removerCuadradoDeLaCola() {
+    private void removerCuadradoDeLaCola() {//Verifica el valor de crecimiento, si la serpiente al moverse comio
+                                              //una manzana la variable crece tendraun valor determinado
+                                               //entonces ese cuadrado no se borra, si la variable crece no tiene
+                                               //ningun valor se tiene que remover elcuadrado de la cola para que la 
+                                               //viborasiga manteniendo su tamano original
 		if (crece > 0) {
 			crece--;
 			return; // no borra la cola
@@ -123,10 +137,13 @@ public class Snake implements InterfazObjetoMovible {
 	}
     
     
-    public boolean estaEn(int x, int y) { //cordenada de ese cuadrado
+    public boolean estaEn(int x, int y) { //cordenada de algun cuadrado de la vibora
 		return largo.contains(new CuadradoGeneral(x, y));
 	}
     
+    
+    
+    //cambia la direccion de la vibora
     @Override
     public void moverArriba() {
         if (direccionActual != direccion.ABAJO)

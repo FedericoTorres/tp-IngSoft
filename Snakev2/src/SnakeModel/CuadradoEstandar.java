@@ -13,9 +13,13 @@ package SnakeModel;
 
 //Esta clase permite la creacion de cuadrados estandar,parte 
 //principal de la matriz en donde se movera la serpiente
+//
+
+
+//son cuadrados que son parte del mapa
 public class CuadradoEstandar extends CuadradoGeneral {
     
-    private boolean esRecorrible;
+    private boolean esRecorrible; //propiedad que define si el cuadrado va a poder ser pisado o no
     
     
     public CuadradoEstandar(int x,int y){
@@ -34,6 +38,6 @@ public class CuadradoEstandar extends CuadradoGeneral {
     
     public void setEsRecorrible(boolean i)
     {
-        esRecorrible = i;
+        esRecorrible = i;//cambia el estado de si es recorrible o no
     }
 }

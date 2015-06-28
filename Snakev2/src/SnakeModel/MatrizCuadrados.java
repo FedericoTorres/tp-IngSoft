@@ -24,7 +24,8 @@ public class MatrizCuadrados {
     private int alto;
     
     
-    //el constructor crea una matriz del tamano solicitado
+    //el constructor crea una matriz de cuadrados estandar que serian el mapa de juego
+    //tambien crea un arreglo de manzanas
     
     public MatrizCuadrados(int ancho, int alto)
     {
@@ -49,6 +50,7 @@ public class MatrizCuadrados {
     }
     
    private void crearMapa() { //Crea el mapa con ancho x alto cuadrados Estandar
+                                //agrega cuadrados estandar siguiendo la estructura de matriz
         mapaDeCuadrados = new CuadradoEstandar[ancho][alto];
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < alto; j++) {
@@ -58,7 +60,8 @@ public class MatrizCuadrados {
     }
    
    
-   public void setBordes() // a los cuadrados del borde los establece como no recorribles
+   public void setBordes() // a los cuadrados del borde los establece como no recorribles llamando al metodo
+                                //setEsRecorrible de CuadradoEstandar
    {
         for (int i = 0; i < ancho; i++) {
             mapaDeCuadrados[i][0].setEsRecorrible(false);
@@ -71,12 +74,13 @@ public class MatrizCuadrados {
         }
     }
    
-   private void crearListaManzanas()
+   private void crearListaManzanas() //crea arrayDeManzanas
    {
        listaDeManzanas = new ArrayList<>();
    }
    
    private boolean estaFueraDelMapa(int x, int y) //devuelve true si la coordenada esta fuera del mapa
+                                                    //se verifica que no sean negativas
    {
        return x < 0 || y < 0 || x > ancho - 1 || y > alto - 1;
 
@@ -89,12 +93,12 @@ public class MatrizCuadrados {
    }
    
    
-   public void agregarManzanas(Manzanas manzana)
+   public void agregarManzanas(Manzanas manzana)    //agrega una manzana al arreglo de manzanas
    {
        listaDeManzanas.add(manzana);
    }
    
-   public Manzanas getManzana(int x, int y)
+   public Manzanas getManzana(int x, int y) //obtiene las coordenadas de una manza recorriendo el arreglo
    {
        if(!esRecorrible(x,y))
        {
@@ -113,7 +117,9 @@ public class MatrizCuadrados {
        }
    }
            
-       public void actualizarManzanas() 
+       public void actualizarManzanas()  //Recorre el arregleo de manzanas y reduce eltiempo de vida en una unidad
+                                        //si una de las manzanas tiene la variable tiempo en un valor menor o igual a 0
+                                         //es eliminada del arreglo por lo tanto del mapa
        {
         for (Iterator<Manzanas> it = listaDeManzanas.iterator(); it.hasNext();) {
             Manzanas manzana = it.next();
@@ -123,72 +129,21 @@ public class MatrizCuadrados {
             }
         }
     }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-      @Override
-    public String toString() {
-       StringBuffer sb = new StringBuffer();
+    public void agregarManzanas(int i, int i0, int i1, Snake snake) { //el parametro de Snake es para determinar    
+                                                                        //su posicion y colocar una manzana en otra
 
-        for (int j = 0; j < alto; j++) {
-            for (int i = 0; i < ancho; i++) {
-                 if (mapaDeCuadrados[i][j].getEsRecorrible()) {
-//                     if (snake.isAt(i, j)) {
-//                        sb.append("@");
-//                     } else 
-                         if (getManzana(i, j) != null) {
-                         sb.append('*');
-                     } else {
-                        sb.append(' ');
-                     }
-                 } else {
-                     sb.append('#');
-                 }
-            }
-            sb.append('\n');
-        }
-       return sb.toString();
-    }
+        Random r = new Random(); //Se crea un numero aleatorio
+        boolean agregada = false;
 
-    public void agregarManzanas(int i, int i0, int i1, Snake snake) {
-
-            Random r = new Random();
-        boolean added = false;
-        // TODO it is not guaranteed that this loop will ever end
-        while (!added) {
+        while (!agregada) {
             int x = r.nextInt(this.ancho);
             int y = r.nextInt(this.alto);
-            if (this.esRecorrible(x, y)
-                    && !snake.estaEn(x, y)
-                    && this.getManzana(x, y) == null) {
-                listaDeManzanas.add(new Manzanas(i, i0, i1, x, y));
-                added = true;
+            if (this.esRecorrible(x, y) //si la coordedana obtenida es un cuadrado recorrible
+                    && !snake.estaEn(x, y)  //si la vibora no esta ahi
+                    && this.getManzana(x, y) == null) { //si no hay ninguna manzana ahi
+                listaDeManzanas.add(new Manzanas(i, i0, i1, x, y)); //seagrega la manzana en esa coordenada
+                agregada = true;
             }
         }
     

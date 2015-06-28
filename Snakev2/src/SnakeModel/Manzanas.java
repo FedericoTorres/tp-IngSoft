@@ -14,10 +14,10 @@ package SnakeModel;
 //Clase que determina elcomportamiento de aquellos cuadrados que sean manzanas
 public class Manzanas  extends CuadradoGeneral
 {
-    private final int puntosValor;
-    private final int valorDeCrecimiento;
+    private final int puntosValor;          //puntaje que aumenta comer esta manzana
+    private final int valorDeCrecimiento; //lo que la snake crezca al comer una manzana
     
-    private int tiempoMuerte;
+    private int tiempoMuerte; //tiempo de vida de la manzana
     
     public Manzanas(int puntosVal, int valorDeC, int tiempoMuer, int x, int y)
     {

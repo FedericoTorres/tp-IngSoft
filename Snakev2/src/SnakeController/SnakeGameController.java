@@ -21,35 +21,42 @@ public class SnakeGameController extends AbstractSnakeController {
      
     }
 
+    
+    
+    
+    //ACTUALIZA LA INTERFAZ GRAFICA, SETEANDO LAS COORDENADAS DE LOS BORDES
+    //DE LAS MANZANAS, Y DE LA VIBORA Y AQUELLOS CUADRADOS VACIOS
     @Override
     public void updateGui() {
         for (int i = 0; i < matrizJuego.getAncho(); i++) {
 			for (int j = 0; j < matrizJuego.getAlto(); j++) {
 				if (!matrizJuego.esRecorrible(i, j)) {
-					gui.setBorder(i, j);
+					gui.setBordes(i, j);
 				} else if (matrizJuego.getManzana(i, j) != null) {
-					gui.setBoni(i, j);
+					gui.setManzanas(i, j);
 				} else if (snake.estaEn(i, j)) {
 					gui.setSnake(i, j);
 				} else {
-					gui.setEmpty(i, j);
+					gui.setVacio(i, j);
 				}
     
                         }
                         
-                        gui.setScore(super.getPuntaje());
+                        gui.setPuntaje(super.getPuntaje());//ACTUALIZA EL PUNTAJE
         }
     }
     
-
+//METODO MAS IMPORTANTE DEL CONTROLLER, MEDIANTE UN LOOP QUE DETERMINE SI LA VARIABLE
+    //JUGANDO ES TRUE, PERMITE JUGAR DURANTE ESA VARIABLE NO CAMBIE DE ESTADO TRUE A ESTADO FALSE
+   
     @Override
     public void jugar() {
 
     while (super.estaJugando()) {
 			super.jugarDurante();
-                     // super.reproducirMusica();
 			try {
-				Thread.sleep(250);
+				Thread.sleep(250); //DUERME EL THREAD POR 250MS REPRESENTARIA
+                                                    //LA VELOCIDAD DE LA VIBORA
 			} catch (InterruptedException ex) {
 			}
 		}

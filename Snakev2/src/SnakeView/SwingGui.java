@@ -267,7 +267,8 @@ public class SwingGui extends javax.swing.JFrame implements IGui, InterfaceEntra
                 
                 
                 else {
-			lastInput = -1;
+			lastInput = -1; //detecta la entrada x teclado y la guarda en una variable que 
+                            //la devuelve con el getEntrada
 		}
                 
 
@@ -332,23 +333,20 @@ public class SwingGui extends javax.swing.JFrame implements IGui, InterfaceEntra
     @Override
     public void setSnake(int x, int y) {
         labels[x][y].setIcon(verde);
-     //   labels[x][y].setText("@");
 
     }
 
     @Override
-    public void setBoni(int x, int y) {
-        		//labels[x][y].setText("*");
+    public void setManzanas(int x, int y) {
 
         labels[x][y].setIcon(manzana);
 
     }
 
     @Override
-    public void setBorder(int x, int y) {
+    public void setBordes(int x, int y) {
 
         	if (!borderSet) {
-                  //  labels[x][y].setText("#");
                     labels[x][y].setIcon(naranja);
 		}
     		
@@ -356,17 +354,15 @@ public class SwingGui extends javax.swing.JFrame implements IGui, InterfaceEntra
     }
 
     @Override
-    public void setEmpty(int x, int y) {
-        
-		//labels[x][y].setText(" ");
-               // ImageIcon icon  = new ImageIcon("C:\\Users\\Leonardo\\Documents\\Prueba\\Snakev2\\src\\Fondo.gif");
+    public void setVacio(int x, int y) {
+       
                  labels[x][y].setBackground(background);
                  labels[x][y].setIcon(null);
 
     }
 
     @Override
-    public void setScore(int score) {
+    public void setPuntaje(int score) {
 
     		jLabel1.setText("Puntaje: " + score);
                 form.setScore(score);
@@ -381,18 +377,18 @@ public class SwingGui extends javax.swing.JFrame implements IGui, InterfaceEntra
     }
     
 
-    @Override
-    public void updateUI() {
-    }
 
     @Override
     public int getEntrada() {
         
-        return lastInput;
+        return lastInput; //retorna la ultimadireccion seteada mediante teclado por el usuario
     }
 
 
-private class StarterThread extends Thread {
+
+    //CLASE PRIVADA QUE REPRESENTA UN THREAD, COLOCA EN TRUE EL ESTA JUGANDO Y EJECUTA EL LOOP
+    
+    private class StarterThread extends Thread {
 		@Override
 		public void run() {
 			lastInput = -1;
