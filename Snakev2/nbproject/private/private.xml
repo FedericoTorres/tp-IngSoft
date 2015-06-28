@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeView/SwingGui.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/Test.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeController/SnakeGameController.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeModel/ReproductorModelInterface.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeModel/ReproductorModel.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/Libro/MyReproductorModelTestDrive.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/Libro/ControllerInterface.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeView/Instrucciones.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeController/AbstractSnakeController.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/Libro/TestDriveGeneral.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeModel/MatrizCuadrados.java</file>
+            <file>file:/C:/Users/Leonardo/Documents/tp-IngSoft/Snakev2/src/SnakeModel/ReproductorAdapter.java</file>
+        </group>
     </open-files>
 </project-private>
