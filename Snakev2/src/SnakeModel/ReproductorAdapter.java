@@ -27,7 +27,7 @@ public class ReproductorAdapter implements BeatModelInterface
     
     public int getBPM() 
     {
-        return 0;
+        return reproductor.getTempo();
     }
     
     public void setBPM(int bpm) {}

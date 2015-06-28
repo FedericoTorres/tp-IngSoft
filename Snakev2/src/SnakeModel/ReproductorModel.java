@@ -88,11 +88,15 @@ public class ReproductorModel implements ReproductorModelInterface {
     public void on()
     {
         sequencer.start();
+        notifyBeatObservers();
+        notifyBPMObservers();
     }
     
     public void stop()
     {
         sequencer.stop();
+        notifyBeatObservers();
+        notifyBPMObservers();
     }
 
     private void defaultList() {
@@ -157,6 +161,9 @@ public class ReproductorModel implements ReproductorModelInterface {
                 Logger.getLogger(ReproductorModel.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("No se pudo leer el Midi");
             }
+            
+            notifyBeatObservers();
+            notifyBPMObservers();
             }
         else
         {
@@ -178,6 +185,8 @@ public class ReproductorModel implements ReproductorModelInterface {
                 System.out.println("No se pudo leer el Midi");
             }
             
+            notifyBeatObservers();
+            notifyBPMObservers();
         }
         else
         {
@@ -185,7 +194,12 @@ public class ReproductorModel implements ReproductorModelInterface {
         }
                   
     }
-
+    
+    public int getTempo()
+    {
+        return (int)sequencer.getTempoInBPM();
+    }
+    
     @Override
     public void registerObserver(BeatObserver o) {
         beatObservers.add(o);

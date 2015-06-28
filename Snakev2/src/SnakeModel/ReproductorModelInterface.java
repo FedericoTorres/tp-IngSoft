@@ -17,7 +17,7 @@ public interface ReproductorModelInterface
     void removeObserver(BeatObserver o);
     void registerObserver(BPMObserver o);
     void removeObserver(BPMObserver o);
-
-    public void nextSong() ;
-    public void previousSong();
+    void nextSong();
+    void previousSong();
+    int getTempo();
 }
