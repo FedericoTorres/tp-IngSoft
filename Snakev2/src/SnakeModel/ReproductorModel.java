@@ -48,43 +48,7 @@ public class ReproductorModel implements ReproductorModelInterface {
     }
     
  
-    
-    /*
-
-    public static void main(String[] args) throws Exception {
-
-
-        // Obtains the default Sequencer connected to a default device.
-
-        Sequencer sequencer = MidiSystem.getSequencer();
-        ArrayList   bfis = new ArrayList();
-        File	midiFile = new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\shakeitoff.mid");
-        
-
-        // Opens the device, indicating that it should now acquire any
-  // system resources it requires and become operational.
-        sequencer.open();
-        // create a stream from a file
-
-        InputStream is = new BufferedInputStream(new FileInputStream(midiFile));
-        InputStream is2 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\yes-roundabout.mid")));
-     
-        bfis.add(is);
-        bfis.add(is2);
-        
-        
-     // Sets the current sequence on which the sequencer operates
-        // The stream must point to MIDI file data
-        sequencer.setSequence((InputStream) bfis.get(1));
-        // Starts playback of the MIDI data in the currently loaded sequence.
-        sequencer.start();
-        
-     
-        
-        
-       
-    }
-    */
+  
     public void on()
     {
         sequencer.start();
@@ -100,14 +64,13 @@ public class ReproductorModel implements ReproductorModelInterface {
     }
 
     private void defaultList() {
-      //  File file1 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\SnakeOriginal\\src\\snakeoriginal\\yes-roundabout.mid");
-        File file1 = new File(getClass().getResource("yes-roundabout.mid").getFile());
-        File file2 = new File(getClass().getResource("shakeitoff.mid").getFile());
-        File file3 = new File(getClass().getResource("articmonkeys.mid").getFile());
-        File file4 = new File(getClass().getResource("muse.mid").getFile());
-        //File file2 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\SnakeOriginal\\src\\snakeoriginal\\shakeitoff.mid");
-       // File file3 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\SnakeOriginal\\src\\snakeoriginal\\articmonkeys.mid");
-       // File file4 = new File("C:\\Users\\Nacho\\Documents\\NetBeansProjectss\\SnakeOriginal\\src\\snakeoriginal\\muse.mid");
+        File file1 = new File(getClass().getResource("Sonic1.mid").getFile());
+        File file2 = new File(getClass().getResource("Sonic2.mid").getFile());
+        File file3 = new File(getClass().getResource("evangelion.mid").getFile());
+        File file4 = new File(getClass().getResource("smwwd1.mid").getFile());
+        File file5 = new File(getClass().getResource("PowerRangers.mid").getFile());
+        File file6 = new File(getClass().getResource("Contra1.mid").getFile());
+        File file7 = new File(getClass().getResource("Dragonborn.mid").getFile());
 
         try {
             // MidiFileFormat mff1 = MidiSystem.getMidiFileFormat(file1);
@@ -115,25 +78,22 @@ public class ReproductorModel implements ReproductorModelInterface {
             Sequence s2=MidiSystem.getSequence(file2);
             Sequence s3=MidiSystem.getSequence(file3);
             Sequence s4=MidiSystem.getSequence(file4);
+            Sequence s5=MidiSystem.getSequence(file5);
+            Sequence s6=MidiSystem.getSequence(file6);
+            Sequence s7=MidiSystem.getSequence(file7);
             this.addSong(s1);
             this.addSong(s2);
             this.addSong(s3);
             this.addSong(s4);
+            this.addSong(s5);
+            this.addSong(s6);
+            this.addSong(s7);
 
             
             //Es mejor trabajar con sequences, no hay errores de casteo.
             
             /*
-            InputStream is = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\yes-roundabout.mid")));
-            this.addSong(is);
-            InputStream is2 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\shakeitoff.mid")));
-            this.addSong(is2);
-            InputStream is3 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\muse.mid")));
-            this.addSong(is3);
-            InputStream is4 = new BufferedInputStream(new FileInputStream(new File("C:\\Users\\Leonardo\\Documents\\tp-IngSoft\\src\\articmonkeys.mid")));
-            this.addSong(is4);
-            songsCounter = 4;
-            
+
         */  } catch (InvalidMidiDataException ex) {
             Logger.getLogger(ReproductorModel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -153,7 +113,7 @@ public class ReproductorModel implements ReproductorModelInterface {
     {
         int cont = bfis.indexOf(sequencer.getSequence());
         System.out.println(cont);
-        if(cont < 3)
+        if(cont < 6)
             {
             try {
                 sequencer.setSequence((Sequence) bfis.get(cont+1));
@@ -167,7 +127,7 @@ public class ReproductorModel implements ReproductorModelInterface {
             }
         else
         {
-            System.out.println("Te pasaste de rosca");
+            System.out.println("No mas temas");
         }
   
     }
@@ -190,7 +150,7 @@ public class ReproductorModel implements ReproductorModelInterface {
         }
         else
         {
-            System.out.println("Te pasaste de Rosca");
+            System.out.println("No mas temas");
         }
                   
     }
