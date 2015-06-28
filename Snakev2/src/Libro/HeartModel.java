@@ -46,6 +46,7 @@ public class HeartModel implements HeartModelInterface, Runnable {
 		int lastrate = -1;
 
 		for(;;) {
+                        notifyBPMObservers();
 			int change = random.nextInt(10);
 			if (random.nextInt(2) == 0) {
 				change = 0 - change;
